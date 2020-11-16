@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Tilesets/Industrial.tres" type="TileSet" id=1]
+[ext_resource path="res://Scripts/PlayerMove.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/char.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Level1.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sprites/door.tres" type="SpriteFrames" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0.0529557, 2.51292 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="IndustrialTileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 131074, 1, 0, 65536, 2, 0, 65536, 3, 0, 65536, 4, 0, 65536, 5, 0, 65536, 65536, 0, 2, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 131072, 0, 2, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 196608, 0, 2, 196609, 0, 0, 196610, 0, 0, 196611, 0, 131072, 196612, 0, 1, 196613, 0, 1, 262144, 0, 2, 262145, 0, 0, 262146, 0, 0, 262147, 0, 3, 327680, 0, 2, 327681, 0, 0, 327682, 0, 0, 327683, 0, 3 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( -46, 21 )
+script = ExtResource( 2 )
+
+[node name="PlayerSprite" type="Sprite" parent="Player"]
+position = Vector2( 77, 89 )
+texture = ExtResource( 3 )
+
+[node name="PlayerPhysObj" type="CollisionShape2D" parent="Player"]
+position = Vector2( 77, 94 )
+scale = Vector2( 56.6511, 1.19382 )
+shape = SubResource( 1 )
+
+[node name="EnterAmination" type="AnimatedSprite" parent="."]
+position = Vector2( 31, 96 )
+frames = ExtResource( 5 )
+animation = "open"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 64, 64 )
+zoom = Vector2( 0.25, 0.25 )
+
+[node name="CollisionBodyContainer" type="StaticBody2D" parent="."]
+
+[node name="CollisionDoor" type="CollisionShape2D" parent="CollisionBodyContainer"]
+position = Vector2( 31, 98 )
+shape = SubResource( 2 )
+disabled = true
+[connection signal="animation_finished" from="EnterAmination" to="." method="_on_EnterAmination_animation_finished"]

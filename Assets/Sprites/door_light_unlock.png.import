@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Industrial_Wall_Top_Long - Copy.png-b5610554720b8c72bdfe08d0fc8f2de2.stex"
+path="res://.import/door_light_unlock.png-88e8632d2e611bbf6eed629a5f207105.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Industrial_Wall_Top_Long - Copy.png"
-dest_files=[ "res://.import/Industrial_Wall_Top_Long - Copy.png-b5610554720b8c72bdfe08d0fc8f2de2.stex" ]
+source_file="res://Assets/Sprites/door_light_unlock.png"
+dest_files=[ "res://.import/door_light_unlock.png-88e8632d2e611bbf6eed629a5f207105.stex" ]
 
 [params]
 
